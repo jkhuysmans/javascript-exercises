@@ -4,9 +4,14 @@
 
 const sumAll = function(firstInteger, lastInteger) {
     sum = 0;
-     if (typeof firstInteger !== 'number' || typeof lastInteger !== 'number') {
+     if (typeof firstInteger !== 'number' || typeof lastInteger !== 'number' ||
+     firstInteger < 0 || lastInteger < 0) {
         sum = "ERROR";
         return sum;
+    } else if (firstInteger > lastInteger) {
+        let tempInteger = firstInteger
+        firstInteger = lastInteger;
+        lastInteger = tempInteger;
     }
     for (let i = firstInteger; i <= lastInteger; i++) {
         sum += i;
